@@ -1,0 +1,46 @@
+{
+    "env": {
+        "development": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": [
+                            "defaults"
+                        ],
+                        "debug": false,
+                        "useBuiltIns": "usage",
+                        "corejs": 3,
+                        "modules": false
+                    }
+                ]
+            ],
+            "plugins": [
+                // [
+                //     "import",
+                //     {
+                //         "libraryName": "core-js"
+                //     }
+                // ]
+            ]
+        },
+        "production": {
+            "presets": [
+                [
+                    "@babel/preset-env",
+                    {
+                        "targets": [
+                            "defaults"
+                        ],
+                        "debug": false,
+                        "useBuiltIns": "usage",
+                        "corejs": 3,
+                        "modules": false
+                    }
+                ]
+            ],
+            "plugins": [
+            ]
+        }
+    }
+}
