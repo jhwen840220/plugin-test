@@ -1,10 +1,10 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const InlineScriptPlugin = require('./Plugins/inline-script-plugin');
+const InlineRawSourcePlugin = require('./Plugins/inline-script-plugin');
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: { 
-        // main: './src/index.js',
+        main: './src/index.js',
         cookie: './src/_cookie.js'
     },
     module: {
@@ -13,9 +13,9 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: [
-                    {
-                        loader: 'babel-loader'
-                    }
+                    // {
+                    //     loader: 'babel-loader'
+                    // }
                 ]
             },
         ]
@@ -25,11 +25,15 @@ module.exports = {
             verbose: true
         }),
 
-        new InlineScriptPlugin({
-        })
+        new InlineRawSourcePlugin({
+            chunkname: ["main", "cookie"],
+            // filename: "QQQ.html",
+            // path: path.resolve(__dirname, 'QQQ')
+        }),
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
+        publicPath: '/dist/',
         filename: '[name].js?v=[contenthash]',
     }
 }

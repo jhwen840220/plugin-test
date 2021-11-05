@@ -2,7 +2,7 @@
  * @class _cookie
  * @description 獨立封裝 cookie 方法，因為 head 的 GA Tracking Code 須使用 cookie 方法
  */
-const _cookie = (name, value, options) => {
+var _cookie = (name, value, options) => {
     if (typeof value != 'undefined') {
         // name and value given, set cookie
         options = options || {}
